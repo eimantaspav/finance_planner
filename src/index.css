@@ -1,3 +1,12 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* Variables */
+:root {
+  /*  Text/background colors */
+  --color-light: #fff;
+  --color-dark: #2c3333;
+  --color-accent: #2666cf;
+}
 /* Box sizing rules */
 *,
 *::before,
@@ -16,13 +25,17 @@ figure,
 blockquote,
 dl,
 dd {
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
+  color: var(--color-accent);
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul,
+ol {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Set core root defaults */
@@ -71,4 +84,20 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Button style */
+.btn {
+  color: var(--color-accent);
+  background-color: var(--color-light);
+  border: solid 2px var(--color-accent);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: 0.1s ease-in-out;
+}
+
+.btn:hover {
+  color: var(--color-light);
+  background-color: var(--color-accent);
+  scale: 1.05;
 }
