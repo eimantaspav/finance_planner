@@ -90,7 +90,12 @@ select {
   }
 }
 
-/* Button style */
+/* Default font color */
+body {
+  color: var(--color-dark);
+}
+
+/* Button styles */
 .btn {
   color: var(--color-accent);
   background-color: var(--color-light);
@@ -100,8 +105,14 @@ select {
   transition: 0.1s ease-in-out;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:active {
   color: var(--color-light);
   background-color: var(--color-accent);
   scale: 1.05;
+  font-weight: 500;
+}
+
+.btn:active {
+  transform: translateY(-1px);
 }

@@ -8,6 +8,9 @@ export default function Navbar() {
         <li className={styles.title}>Finance Planner</li>
         <li>
           <Link to="/login">Login</Link>
+        </li>
+        <li>
+          {' '}
           <Link to="/signup">Signup</Link>
         </li>
       </ul>
