@@ -20,6 +20,7 @@ export const useSignup = () => {
       setIsPending(false);
       setError(null);
     } catch (err) {
+      // if error from firebase
       console.log(err.message);
       setError(err.message);
       setIsPending(false);
