@@ -12,26 +12,19 @@ export const useLogin = () => {
     setError(null);
     setIsPending(true);
     //sign out
+
     try {
       const response = await projectAuth.signInWithEmailAndPassword(email, password);
       dispatch({ type: 'LOGIN', payload: response.user });
       // update state
-      if (!isCancelled) {
-        setIsPending(false);
-        setError(null);
-      }
+      setIsPending(false);
+      setError(null);
     } catch (err) {
-      if (!isCancelled) {
-        console.log(err.message);
-        setError(err.message);
-        setIsPending(false);
-      }
+      console.log(err.message);
+      setError(err.message);
+      setIsPending(false);
     }
   };
-  useEffect(() => {
-    return () => {
-      setIsCancelled(true);
-    };
-  }, []);
+
   return { login, error, isPending };
 };

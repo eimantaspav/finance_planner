@@ -13,25 +13,21 @@ export const useLogout = () => {
     setIsPending(true);
     //sign out
     try {
+      // sign the user out
       await projectAuth.signOut();
+
+      // dispatch logout action
       dispatch({ type: 'LOGOUT' });
+
       // update state
-      if (!isCancelled) {
-        setIsPending(false);
-        setError(null);
-      }
+      setIsPending(false);
+      setError(null);
     } catch (err) {
-      if (!isCancelled) {
-        console.log(err.message);
-        setError(err.message);
-        setIsPending(false);
-      }
+      console.log(err.message);
+      setError(err.message);
+      setIsPending(false);
     }
   };
-  useEffect(() => {
-    return () => {
-      setIsCancelled(true);
-    };
-  }, []);
+
   return { logout, error, isPending };
 };
