@@ -7,16 +7,16 @@ import Login from './pages/login/Login';
 import Navbar from './components/Navbar';
 
 function App() {
-  const { authIsReady } = useAuthContext();
+  const { authIsReady, user } = useAuthContext();
   return (
     <div className="App">
       {authIsReady && (
         <>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/signup" element={<Signup />}></Route>
-            <Route path="/login" element={<Login />}></Route>
+            <Route path="/" element={user ? <Home /> : <Login />}></Route>
+            <Route path="/signup" element={!user ? <Signup /> : <Home />}></Route>
+            <Route path="/login" element={!user ? <Login /> : <Home />}></Route>
           </Routes>
         </>
       )}
