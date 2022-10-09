@@ -1,3 +1,3 @@
 Finance Planner Project
 
-This is project from a tutorial
+This is a project from a tutorial
